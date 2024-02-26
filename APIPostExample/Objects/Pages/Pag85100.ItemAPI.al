@@ -65,6 +65,7 @@ page 85100 MyItemAPI
                     PriceListHeader.Get(PriceListLine."Price List Code");
                     PriceListHeader.Status := PriceListHeader.Status::Inactive;
                     PriceListHeader.Modify();
+                    resultadoOperacion2 := Msg001;
                 until PriceListLine.Next() = 0;
         end;
     end;
