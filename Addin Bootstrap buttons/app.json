@@ -1,0 +1,32 @@
+{
+  "id": "95cf39ac-193b-440d-95e9-fbbaa5f9a618",
+  "name": "Addin Bootstrap Icons",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "23.0.0.0",
+  "idRanges": [
+    {
+      "from": 50400,
+      "to": 50449
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "12.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
