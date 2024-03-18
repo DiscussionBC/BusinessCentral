@@ -122,8 +122,7 @@ codeunit 60800 GraphConnectorMngt
         ElapsedSecs: Integer;
         AuthCode: Text;
     begin
-        CheckConfig();
-        GraphSetup.Get();
+        CheckConfig();        
         if (GraphSetup."Authorization Time" <> 0DT) then begin
             ElapsedSecs := Round((CurrentDateTime() - GraphSetup."Authorization Time") / 1000, 1, '>');
             if ElapsedSecs >= GraphSetup."Expires In" then
@@ -154,9 +153,10 @@ codeunit 60800 GraphConnectorMngt
         Property: Text;
         RefreshToken: Text;
         ResponseText: Text;
+        Secret: Text;
     begin
         CheckConfig();
-        GraphSetup.Get();
+        IsolatedStorage.Get('Secret', Secret);
         RefreshToken := RefreshTokenToText();
         if RefreshToken = '' then
             exit;
@@ -167,7 +167,7 @@ codeunit 60800 GraphConnectorMngt
             '&refresh_token=' + DotNetUriBuilder.EscapeDataString(RefreshToken) +
             '&redirect_uri=' + DotNetUriBuilder.EscapeDataString(GraphSetup."Redirect URL") +
             '&client_id=' + DotNetUriBuilder.EscapeDataString(GraphSetup."Client ID") +
-            '&client_secret=' + DotNetUriBuilder.EscapeDataString(GraphSetup."Client Secret");
+            '&client_secret=' + DotNetUriBuilder.EscapeDataString(Secret);
         Content.WriteFrom(ContentText);
 
         Content.GetHeaders(ContentHeaders);
